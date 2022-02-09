@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('dap_an', function (Blueprint $table) {
             $table->id('id');
-            $table->string('username');
-            $table->string('birth');
-            $table->string('unit');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('content');
+            $table->integer('status');
+            $table->bigInteger('ch_id')->unsigned();
+            $table->foreign('ch_id')->references('ch_id')->on('cau_hoi')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('dap_an');
     }
 };
