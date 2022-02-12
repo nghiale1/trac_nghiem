@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('unit');
             $table->integer('status')->default(0);
             $table->date('birth');
+            $table->dateTime('start')->nullable();
+            $table->dateTime('end')->nullable();
             $table->bigInteger('id')->unsigned();
             $table->foreign('id')->references('id')->on('phong_thi')->onDelete('cascade');
             $table->timestamps();

@@ -44,6 +44,8 @@ class De extends Model
 		'mark',
 		'name',
 		'unit',
+		'start',
+		'end',
 		'birth',
 		'id'
 	];
@@ -56,5 +58,15 @@ class De extends Model
 	public function de_cauhois()
 	{
 		return $this->hasMany(DeCauhoi::class);
+	}
+
+	public function tra_lois()
+	{
+		return $this->hasMany(TraLoi::class);
+	}
+
+	public function tra_loi($de,$da,$ch)
+	{
+		return TraLoi::where('de_id',$de)->where('da_id',$da)->where('ch_id',$ch)->first();
 	}
 }

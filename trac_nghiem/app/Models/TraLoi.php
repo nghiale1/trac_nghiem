@@ -6,35 +6,36 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class DapAn
+ * Class TraLoi
  * 
  * @property int $id
- * @property string $content
- * @property int $status
+ * @property int $de_id
+ * @property int $da_id
  * @property int $ch_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
  * 
  * @property CauHoi $cau_hoi
+ * @property DapAn $dap_an
+ * @property De $de
  *
  * @package App\Models
  */
-class DapAn extends Model
+class TraLoi extends Model
 {
-	protected $table = 'dap_an';
+	protected $table = 'tra_loi';
+	public $timestamps = false;
 
 	protected $casts = [
-		'status' => 'int',
+		'de_id' => 'int',
+		'da_id' => 'int',
 		'ch_id' => 'int'
 	];
 
 	protected $fillable = [
-		'content',
-		'status',
+		'de_id',
+		'da_id',
 		'ch_id'
 	];
 
@@ -43,8 +44,13 @@ class DapAn extends Model
 		return $this->belongsTo(CauHoi::class, 'ch_id');
 	}
 
-	public function tra_loi($de,$da,$ch)
+	public function dap_an()
 	{
-		return TraLoi::where('de_id',$de)->where('da_id',$da)->where('ch_id',$ch)->first();
+		return $this->belongsTo(DapAn::class, 'da_id');
+	}
+
+	public function de()
+	{
+		return $this->belongsTo(De::class);
 	}
 }

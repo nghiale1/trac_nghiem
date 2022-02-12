@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,5 +33,14 @@ Route::middleware(['CheckExam'])->group(function () {
 });
 
 Route::middleware(['CheckAuth'])->group(function () {
-    Route::get('/quan-tri',  [HomeController::class, 'admin'])->name('admin');
+    Route::get('/quan-tri',  [AdminController::class, 'indexExam'])->name('admin');
+    Route::get('/danh-sach-phong-thi',  [AdminController::class, 'indexExam'])->name('index.exam');
+    Route::get('/tao-phong-thi',  [AdminController::class, 'createExam'])->name('create.exam');
+    Route::post('/luu-phong-thi',  [AdminController::class, 'storeExam'])->name('store.exam');
+    Route::post('/sua-phong-thi/{phongthi}',  [AdminController::class, 'updateExam'])->name('update.exam');
+    Route::post('/xoa-phong-thi/{phongthi}',  [AdminController::class, 'deleteExam'])->name('delete.exam');
+
+    Route::get('/xem-ket-qua-thi/{phongthi}',  [AdminController::class, 'resultExam'])->name('resultExam');
+    Route::get('/xem-chi-tiet-ket-qua-thi/{de}',  [AdminController::class, 'detailExam'])->name('detailExam');
+
 });
