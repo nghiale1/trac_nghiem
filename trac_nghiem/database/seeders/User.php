@@ -18,10 +18,8 @@ class User extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'username'=>'HV1',
-            'birth'=>Carbon::now(),
-            'unit'=>'DV1',
-            'password'=>Hash::make('HV1'),
+            'username'=>'admin',
+            'password'=>Hash::make('admin'),
         ],
         );
     }

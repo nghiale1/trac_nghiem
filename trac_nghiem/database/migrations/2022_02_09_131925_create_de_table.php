@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('de', function (Blueprint $table) {
             $table->id('de_id');
             $table->string('mark')->default(0);
+            $table->string('name');
+            $table->string('unit');
+            $table->integer('status')->default(0);
+            $table->date('birth');
             $table->bigInteger('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('phong_thi')->onDelete('cascade');
             $table->timestamps();
         });
     }

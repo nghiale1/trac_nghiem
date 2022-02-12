@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
 class DapAn extends Model
 {
 	protected $table = 'dap_an';
-	protected $primaryKey = 'id';
+
 	protected $casts = [
 		'status' => 'int',
 		'ch_id' => 'int'

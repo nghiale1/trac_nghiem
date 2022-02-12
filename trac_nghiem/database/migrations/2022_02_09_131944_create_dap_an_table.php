@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('dap_an', function (Blueprint $table) {
             $table->id('id');
-            $table->string('content');
+            $table->text('content');
             $table->integer('status');
             $table->bigInteger('ch_id')->unsigned();
             $table->foreign('ch_id')->references('ch_id')->on('cau_hoi')->onDelete('cascade');

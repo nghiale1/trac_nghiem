@@ -2,5 +2,5 @@
 //file : app/config/constants.php
 
 return [
-	'numberQues' => 20
+	'numberQues' => 2
 ];

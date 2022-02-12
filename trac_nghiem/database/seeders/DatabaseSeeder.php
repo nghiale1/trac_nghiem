@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CauHoi::class);
         $this->call(DapAn::class);
         $this->call(User::class);
+        $this->call(PhongThi::class);
     }
 }

@@ -22,10 +22,10 @@
         </center>
         @foreach ($cauhoi as $key=>$item)
         <b>
-            <h4>Câu số {{$key+1}}: {{$item->content}}</h4>
+            <h4>Câu số {{$key+1}}: {{$item->cau_hoi->content}}</h4>
         </b>
 
-        @foreach ($item->dap_ans as $key2=>$dapan)
+        @foreach ($item->cau_hoi->dap_ans as $key2=>$dapan)
         <input type="radio" name="cauhoi{{$item->ch_id}}[]" required id="{{$dapan->id}}{{$key2}}" value="{{$dapan->id}}"> 
         <label for="{{$dapan->id}}{{$key2}}">{{$dapan->content}}</label><br>
         @endforeach

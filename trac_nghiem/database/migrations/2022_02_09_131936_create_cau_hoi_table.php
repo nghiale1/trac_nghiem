@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('cau_hoi', function (Blueprint $table) {
             $table->id('ch_id');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }

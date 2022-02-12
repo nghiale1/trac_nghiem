@@ -15,11 +15,14 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $de_id
  * @property string $mark
+ * @property string $name
+ * @property string $unit
+ * @property Carbon $birth
  * @property int $id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
- * @property User $user
+ * @property PhongThi $phong_thi
  * @property Collection|DeCauhoi[] $de_cauhois
  *
  * @package App\Models
@@ -33,14 +36,21 @@ class De extends Model
 		'id' => 'int'
 	];
 
+	protected $dates = [
+		'birth'
+	];
+
 	protected $fillable = [
 		'mark',
+		'name',
+		'unit',
+		'birth',
 		'id'
 	];
 
-	public function user()
+	public function phong_thi()
 	{
-		return $this->belongsTo(User::class, 'id');
+		return $this->belongsTo(PhongThi::class, 'id');
 	}
 
 	public function de_cauhois()

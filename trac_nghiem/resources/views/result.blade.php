@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,9 +47,15 @@
         #login .container #login-row #login-column #login-box #login-form #register-link {
             margin-top: -85px;
         }
+
         label {
-    margin-bottom: 0;
-}
+            margin-bottom: 0;
+        }
+
+        td {
+            width: 50%;
+        }
+
     </style>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -73,17 +77,21 @@
                         <table>
                             <tr>
                                 <td>Họ tên: </td>
-                                <td> {{$user->username}}</td>
-                            </tr><tr>
+                                <td> {{$de->name}}</td>
+                            </tr>
+                            <tr>
                                 <td>Ngày sinh: </td>
-                                <td> {{date('d-m-Y', strtotime($user->birth))}}</td>
-                            </tr><tr>
+                                <td> {{date('d-m-Y', strtotime($de->birth))}}</td>
+                            </tr>
+                            <tr>
                                 <td>Đơn vị: </td>
-                                <td> {{$user->unit}}</td>
-                            </tr><tr>
+                                <td> {{$de->unit}}</td>
+                            </tr>
+                            <tr>
                                 <td>Ngày giờ thi: </td>
                                 <td>{{date('H:i:s d-m-Y', strtotime($de->created_at))}}</td>
-                            </tr><tr>
+                            </tr>
+                            <tr>
                                 <td>Số điểm: </td>
                                 <td> <b>{{$de->mark}}</b></td>
                             </tr>
@@ -95,7 +103,7 @@
     </div>
     <br><br>
     <center>
-        <a href="/exam">Quay lại</a>
+        <a href="/">Trở về</a>
     </center>
 
 </body>
