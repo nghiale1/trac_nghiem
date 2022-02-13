@@ -78,7 +78,10 @@ class HomeController extends Controller
         if ($de->status == 1) {
             return redirect()->route('result');
         }
-        return view('exam', compact('de', 'cauhoi'));
+        $now = Carbon::now();
+        $sec=($now->diffInSeconds($de->start)%60);
+        $mini=$now->diffInMinutes($de->start);
+        return view('exam', compact('de', 'cauhoi','sec','mini'));
     }
 
     public function examSubmit(Request $request)
