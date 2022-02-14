@@ -25,14 +25,18 @@
         .ques {
             padding-left: 5px;
             padding-right: 5px;
-            width: 30;
             background-color: #F5F5FA;
             border: 1px solid black;
+            width: 30px;
             display: inline-block;
+            margin-bottom: 5px
         }
 
         .check{
             background-color: #32CD32
+        }
+        .right{
+            position: fixed;
         }
 
     </style>
@@ -67,32 +71,40 @@
                 </form>
             </div>
             <div class="col-md-1"></div>
-            <div class="col-md-3 white">
-                <table>
-                    <tr>
-                        <td>Họ tên: </td>
-                        <td> {{$de->name}}</td>
-                    </tr>
-                    <tr>
-                        <td>Ngày sinh: </td>
-                        <td> {{date('d-m-Y', strtotime($de->birth))}}</td>
-                    </tr>
-                    <tr>
-                        <td>Đơn vị: </td>
-                        <td> {{$de->unit}}</td>
-                    </tr>
-                    <tr>
-                        <td>Ngày giờ thi: </td>
-                        <td>{{date('H:i:s d-m-Y', strtotime($de->created_at))}}</td>
-                    </tr>
+            <div class="col-md-3 white ">
+                <div class="right">
 
-                </table>
-                <hr>
-                <div>Thời gian còn lại <span id="timer">00:00</span> phút!</div>
-                <br>
-                @for ($i=0;$i<Config::get('constants.numberQues');$i++) 
-                <a href="#{{$i+1}}" class="ques" id="ques{{$i+1}}">{{$i+1}}</a>
-                    @endfor
+                    <table>
+                        <tr>
+                            <td>Họ tên: </td>
+                            <td> {{$de->name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh: </td>
+                            <td> {{date('d-m-Y', strtotime($de->birth))}}</td>
+                        </tr>
+                        <tr>
+                            <td>Đơn vị: </td>
+                            <td> {{$de->unit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày giờ thi: </td>
+                            <td>{{date('H:i:s d-m-Y', strtotime($de->created_at))}}</td>
+                        </tr>
+    
+                    </table>
+                    <hr>
+                    <div>Thời gian còn lại <span id="timer">00:00</span> phút!</div>
+                    <br>
+                    @for ($i=0;$i<Config::get('constants.numberQues');$i++) 
+
+                        <a href="#{{$i+1}}" class="ques" id="ques{{$i+1}}">{{$i+1}}</a>
+                    
+                    @if (($i+1)%5==0)
+                        <br>
+                    @endif
+                        @endfor
+                </div>
             </div>
         </div>
 
