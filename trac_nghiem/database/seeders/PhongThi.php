@@ -18,7 +18,7 @@ class PhongThi extends Seeder
         DB::table('phong_thi')->insert([
             'name'=>'phòng 1',
             'start'=>'2022-02-11 15:50:27',
-            'end'=>'2022-02-14 15:50:27',
+            'end'=>'2022-02-19 15:50:27',
             'password'=>'123',
         ]);
     }

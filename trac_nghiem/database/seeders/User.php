@@ -19,7 +19,7 @@ class User extends Seeder
     {
         DB::table('users')->insert([
             'username'=>'admin',
-            'password'=>Hash::make('admin'),
+            'password'=>Hash::make('ktct102'),
         ],
         );
     }

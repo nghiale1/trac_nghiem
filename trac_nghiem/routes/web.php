@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('menu');
+})->name('menu');
+Route::get('/dang-nhap-kiem-tra', function () {
     return view('index');
 })->name('index');
 Route::get('/dang-nhap', function () {
     return view('login');
 })->name('login');
+
+Route::get('/tai-lieu',  [HomeController::class, 'listLesion'])->name('study');
+Route::get('/chi-tiet/{tailieu}',  [HomeController::class, 'detail'])->name('detail');
 
 Route::post('/dang-nhap', [HomeController::class, 'loginSubmit'])->name('login.submit');
 Route::post('/dang-nhap-lam-bai', [HomeController::class, 'loginExam'])->name('login.exam');

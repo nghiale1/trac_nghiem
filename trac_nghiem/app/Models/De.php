@@ -45,6 +45,7 @@ class De extends Model
 		'name',
 		'unit',
 		'start',
+		'classification',
 		'end',
 		'birth',
 		'id'

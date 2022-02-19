@@ -7,6 +7,7 @@ use App\Models\DapAn;
 use App\Models\De;
 use App\Models\DeCauhoi;
 use App\Models\PhongThi;
+use App\Models\TaiLieu;
 use App\Models\TraLoi;
 use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
@@ -79,9 +80,9 @@ class HomeController extends Controller
             return redirect()->route('result');
         }
         $now = Carbon::now();
-        $sec=($now->diffInSeconds($de->start)%60);
-        $mini=$now->diffInMinutes($de->start);
-        return view('exam', compact('de', 'cauhoi','sec','mini'));
+        $sec = ($now->diffInSeconds($de->start) % 60);
+        $mini = $now->diffInMinutes($de->start);
+        return view('exam', compact('de', 'cauhoi', 'sec', 'mini'));
     }
 
     public function examSubmit(Request $request)
@@ -93,16 +94,28 @@ class HomeController extends Controller
                 $da->status == 1 && $temp++;
 
                 TraLoi::create([
-                    'de_id'=>$request->de_id,
-                    'da_id'=>$value[0],
-                    'ch_id'=>ltrim($key,'cauhoi')
+                    'de_id' => $request->de_id,
+                    'da_id' => $value[0],
+                    'ch_id' => ltrim($key, 'cauhoi')
                 ]);
             }
         }
         $mark = $temp / Config::get('constants.numberQues') * 10 ?? 0;
+        $classification = '';
+        if (round($mark, 2) >= 8) {
+            $classification = 'Giỏi';
+        } else if (round($mark, 2) >= 6.5 && round($mark, 2) < 8) {
+            $classification = 'Khá';
+        } else if (round($mark, 2) >= 5 && round($mark, 2) < 6.5) {
+            $classification = 'Đạt yêu cầu';
+        } else if (round($mark, 2) < 5) {
+            $classification = 'Không đạt yêu cầu';
+        }
+
         De::where('de_id', $request->de_id)->update([
             'mark' => round($mark, 2),
-            'end' => Carbon::now()
+            'end' => Carbon::now(),
+            'classification' => $classification
         ]);
 
 
@@ -120,5 +133,16 @@ class HomeController extends Controller
     public function admin()
     {
         return view('admin.template.layout');
+    }
+
+    public function listLesion()
+    {
+        $tailieu=TaiLieu::all();
+        return view("study",compact('tailieu'));
+    }
+
+    public function detail(TaiLieu $tailieu)
+    {
+        return view('detail',compact('tailieu'));
     }
 }

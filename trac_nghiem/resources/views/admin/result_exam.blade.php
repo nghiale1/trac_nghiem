@@ -12,6 +12,7 @@
                 <th>Đơn vị</th>
                 <th>Thời gian làm bài(phút)</th>
                 <th>Điểm</th>
+                <th>Xếp loại</th>
                 <th>Tác vụ</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
                     @endif
                 </td>
                 <td>{{$item->mark}}</td>
+                <td>{{$item->classification}}</td>
                 <td>
                         <a href="{{route('detailExam',$item->de_id)}}"  target="_blank">Xem chi tiết</a>
                 </td>

@@ -95,6 +95,10 @@
                                 <td>Số điểm: </td>
                                 <td> <b>{{$de->mark}}</b></td>
                             </tr>
+                            <tr>
+                                <td>Xếp loại: </td>
+                                <td> <b>{{$de->classification}}</b></td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -103,7 +107,7 @@
     </div>
     <br><br>
     <center>
-        <a href="/">Trở về</a>
+        <a href="/menu">Trở về</a>
     </center>
 
 </body>

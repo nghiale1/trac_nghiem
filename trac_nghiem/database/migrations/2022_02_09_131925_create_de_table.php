@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('mark')->default(0);
             $table->string('name');
             $table->string('unit');
+            $table->string('classification')->nullable();
             $table->integer('status')->default(0);
             $table->date('birth');
             $table->dateTime('start')->nullable();

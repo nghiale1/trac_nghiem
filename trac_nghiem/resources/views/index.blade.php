@@ -72,7 +72,7 @@
     <img src="z3169244707157_03ea45645eb29b1d43a21c7c4ed1b57a.jpg" alt="" id="logo">
     <center>
         <h2>ĐOÀN KẾT, HIỆP ĐỒNG, LINH HOẠT <br>
-            SÁNG TẠO, ĐÁNH GIỎI, BẤT TRÚNG</h2>
+            SÁNG TẠO, ĐÁNH GIỎI, BẮN TRÚNG</h2>
     </center>
 
     <div id="login">

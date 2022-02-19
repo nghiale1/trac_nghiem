@@ -48,6 +48,10 @@
                     <td>Số điểm: </td>
                     <td> <b>{{$de->mark}}</b></td>
                 </tr>
+                <tr>
+                    <td>Xếp loại: </td>
+                    <td> <b>{{$de->classification}}</b></td>
+                </tr>
             </table>
             <input type="hidden" value="{{$de->de_id}}" name="de_id">
             <center>
