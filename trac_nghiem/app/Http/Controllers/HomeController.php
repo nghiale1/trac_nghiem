@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CauHoi;
+use App\Models\Chuong;
 use App\Models\DapAn;
 use App\Models\De;
 use App\Models\DeCauhoi;
@@ -135,10 +136,16 @@ class HomeController extends Controller
         return view('admin.template.layout');
     }
 
-    public function listLesion()
+    public function listChapter()
     {
-        $tailieu=TaiLieu::all();
-        return view("study",compact('tailieu'));
+        $chuong=Chuong::all();
+        return view("study",compact('chuong'));
+    }
+
+    public function listLession(Chuong $chuong)
+    {
+        $tailieu=TaiLieu::where('chuong_id',$chuong->id)->get();
+        return view('listLession',compact('tailieu'));
     }
 
     public function detail(TaiLieu $tailieu)

@@ -57,11 +57,12 @@
         }
 
         .alert {
-            margin-bottom: 0!important;
-            padding-bottom: 0!important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
 
         }
-        .btn{
+
+        .btn {
             margin: 15px;
         }
 
@@ -81,8 +82,24 @@
     <div id="login">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
-                <a href="{{route('listChapter')}}" class="btn btn-primary" role="button">Học tập</a>
-                <a href="{{route('index')}}" class="btn btn-primary" role="button">Kiểm tra</a>
+                <center>
+                    <table class="">
+                    <tbody>
+                        @foreach ($tailieu as $item)
+                        <tr>
+                            <td>
+                                <center>
+
+                                    <a href="{{route('detail',$item->id)}}" class="btn btn-primary"
+                                        role="button">{{$item->title}}</a></td>
+                                    </center>
+                        </tr>
+
+                        @endforeach
+                    </tbody>
+                </table>
+                </center>
+                
             </div>
         </div>
     </div>

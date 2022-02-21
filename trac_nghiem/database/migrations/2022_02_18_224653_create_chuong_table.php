@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tai_lieu', function (Blueprint $table) {
-            $table->id('id');
-            $table->text('content')->nullable();
-            $table->longText('title')->nullable();
-            $table->bigInteger('chuong_id')->unsigned();
-            $table->foreign('chuong_id')->references('id')->on('chuong')->onDelete('cascade');
+        Schema::create('chuong', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tai_lieu');
+        Schema::dropIfExists('chuong');
     }
 };

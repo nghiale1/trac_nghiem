@@ -85,12 +85,12 @@
                 <center>
                     <table class="">
                     <tbody>
-                        @foreach ($tailieu as $item)
+                        @foreach ($chuong as $item)
                         <tr>
                             <td>
                                 <center>
 
-                                    <a href="{{route('detail',$item->id)}}" class="btn btn-primary"
+                                    <a href="{{route('listLesson',$item->id)}}" class="btn btn-primary"
                                         role="button">{{$item->title}}</a></td>
                                     </center>
                         </tr>

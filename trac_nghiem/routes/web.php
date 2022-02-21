@@ -25,7 +25,8 @@ Route::get('/dang-nhap', function () {
     return view('login');
 })->name('login');
 
-Route::get('/tai-lieu',  [HomeController::class, 'listLesion'])->name('study');
+Route::get('/chuong',  [HomeController::class, 'listChapter'])->name('listChapter');
+Route::get('/{chuong}/tai-lieu',  [HomeController::class, 'listLession'])->name('listLesson');
 Route::get('/chi-tiet/{tailieu}',  [HomeController::class, 'detail'])->name('detail');
 
 Route::post('/dang-nhap', [HomeController::class, 'loginSubmit'])->name('login.submit');
