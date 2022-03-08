@@ -50,14 +50,15 @@
 
         /* .doc {
             width: 100%;
-            height: 100%;
+            height: 2100px;
         } */
 
     </style>
 </head>
 
 <body >
-            <iframe src="{{asset($tailieu->content)}}" class="doc"></iframe>
+    <embed src="{{ url('/') }}/{{($tailieu->content)}}" width="100%" height="2100px" />
+            <!-- <iframe src="{{asset($tailieu->content)}}" class="doc"></iframe> -->
    
 </body>
 
